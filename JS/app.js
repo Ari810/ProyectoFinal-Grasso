@@ -115,6 +115,20 @@ export async function agregarEventoDisponible(recital) {
                 recital.fecha
             );
 
+            const yaExiste = recitales.some(
+                (existe) =>
+                    existe.artista === nuevoRecital.artista &&
+                    existe.fecha === nuevoRecital.fecha
+            );
+
+            if (yaExiste) {
+                Swal.fire({
+                    title: "¡Error!",
+                    text: `"${recital.artista}" ya se encuentra en la agenda.`,
+                });
+                return;
+            }
+
             recitales.push(nuevoRecital);
             guardadoLocal();
             renderizar();

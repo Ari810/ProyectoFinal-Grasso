@@ -3,5 +3,6 @@
     {"id":1, "artista": "Iggy Pop", "entrada":[{"sector":"campo", "precio": 80000},{"sector": "platea", "precio": 120000}], "fecha": "2025-09-12", "img":"https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2025/05/RRSS_IGGYPOP_1X1.jpg?resize=800%2C800&ssl=1"},
     {"id":2, "artista": "Guns and Roses", "entrada":[{"sector":"campo", "precio": 110000},{"sector": "platea", "precio": 275000}], "fecha": "2025-10-17", "img": "https://cdn.getcrowder.com/images/187e6712-4d63-45dc-90f5-0ad967608fd3-gunsnroses-bannersaa-nuevafecha640x640.jpg"},
     {"id":3, "artista": "Oasis", "entrada":[{"sector":"campo", "precio": 170000},{"sector": "platea", "precio": 250000}], "fecha": "2025-11-15", "img": "https://cdn.getcrowder.com/images/98925d7c-ebdc-4683-8aef-930bfcf1ead5-640x640-web-aa-mobile.jpg"},
-    {"id":4, "artista": "Billy Idol", "entrada":[{"sector":"campo", "precio": 130000},{"sector": "platea", "precio": 150000}], "fecha": "2025-11-15", "img": "https://indiehoy.com/wp-content/uploads/2025/08/billy-idol-argentina.jpg"}
+    {"id":4, "artista": "Billy Idol", "entrada":[{"sector":"campo", "precio": 130000},{"sector": "platea", "precio": 150000}], "fecha": "2025-11-15", "img": "https://indiehoy.com/wp-content/uploads/2025/08/billy-idol-argentina.jpg"},
+    {"id":5, "artista": "Rod Stewart", "entrada":[{"sector":"campo", "precio": 170000},{"sector": "platea", "precio": 190000}], "fecha": "2025-11-22", "img": "https://indiehoy.com/wp-content/uploads/2025/01/rod-stewart-argentina-2025.jpg"}
 ]

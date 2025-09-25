@@ -95,6 +95,7 @@ botonBorrar.addEventListener("click", () => {
     renderizar();
 });
 
+// Esta función agrega recitales disponibles del JSON a la agenda
 export async function agregarEventoDisponible(recital) {
     const resultado = await confirmarAgenda(recital.artista);
 
@@ -115,6 +116,7 @@ export async function agregarEventoDisponible(recital) {
                 recital.fecha
             );
 
+            // Aca confirmamos que no se repita
             const yaExiste = recitales.some(
                 (existe) =>
                     existe.artista === nuevoRecital.artista &&

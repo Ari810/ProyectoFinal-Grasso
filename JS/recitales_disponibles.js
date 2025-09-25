@@ -1,5 +1,6 @@
 import { agregarEventoDisponible } from "./app.js";
 
+// Esta función permite obtener los recitales disponibles desde el archivo JSON
 async function RecitalesDisponibles() {
     const response = await fetch("recitales.json");
     const data = await response.json();
@@ -7,6 +8,7 @@ async function RecitalesDisponibles() {
     return data;
 }
 
+// Esta función muestra las tarjetas de los recitales disponibles en el HTML
 export async function mostrarTarjetas() {
     try {
         const listaDisponible = await RecitalesDisponibles();
@@ -19,6 +21,7 @@ export async function mostrarTarjetas() {
     }
 }
 
+// Esta función crea una tarjeta para cada recital disponible
 function crearTarjeta(recital) {
     const div = document.getElementById("disponibles");
     const target = document.createElement("div");

@@ -1,7 +1,8 @@
+// Función para crear una notificación de confirmación al agregar un evento a la agenda
 export function confirmarAgenda(nombreRecital) {
     return Swal.fire({
         title: "¿Agregar a la agenda?",
-        text: `¿Deseas agregar "${nombreRecital}" a la agenda?`,
+        text: `¿Deseas agregar el evento de "${nombreRecital}" a la agenda?`,
         icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -11,6 +12,7 @@ export function confirmarAgenda(nombreRecital) {
     });
 }
 
+// Función para crear una notificación de confirmación al eliminar un evento de la agenda
 export function eliminarDeAgenda() {
     return Swal.fire({
         title: "¿Eliminar de la agenda?",
@@ -24,6 +26,7 @@ export function eliminarDeAgenda() {
     });
 }
 
+// Con esta función genero un SweetAlert que me permita elegir el sector (Platea o Campo) al agregar un recital a la agenda
 export function elegirSector() {
     return Swal.fire({
         title: "Selecciona un sector",

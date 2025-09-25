@@ -1,3 +1,5 @@
+import { agregarEventoDisponible } from "./app.js";
+
 async function RecitalesDisponibles() {
     const response = await fetch("recitales.json");
     const data = await response.json();
@@ -26,10 +28,14 @@ function crearTarjeta(recital) {
         <h3>${recital.artista}</h3>
         <p>${recital.fecha}</p>
         <ul>${recital.entrada
-            .map((e) => `<li>${e.sector} - $${e.precio}</li>`)
+            .map((ticket) => `<li>${ticket.sector} - $${ticket.precio}</li>`)
             .join("")}</ul>
-        <button class="btn-comprar">Agregar al carrito</button>
+        <button class="btn-agregar">Agregar a la agenda</button>
     `;
 
+    const botonAgregar = target.querySelector(".btn-agregar");
+    botonAgregar.addEventListener("click", function () {
+        agregarEventoDisponible(recital);
+    });
     div.appendChild(target);
 }

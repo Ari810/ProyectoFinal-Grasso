@@ -1,3 +1,8 @@
+import {
+    confirmarAgenda,
+    elegirSector,
+    eliminarDeAgenda,
+} from "./notificaciones.js";
 import { mostrarTarjetas } from "./recitales_disponibles.js";
 
 // Creo un array
@@ -29,11 +34,15 @@ const form = document.getElementById("formularioRecitales");
 const lista = document.getElementById("listaRecitales");
 
 // Esta funcion permite borrar los recitales de la agenda individualmente
-const borrarReci = (id) => {
-    recitales = recitales.filter((recital) => recital.id !== id);
-    guardadoLocal();
-    renderizar();
-};
+async function borrarReci(id) {
+    const resultado2 = await eliminarDeAgenda();
+
+    if (resultado2.isConfirmed) {
+        recitales = recitales.filter((recital) => recital.id !== id);
+        guardadoLocal();
+        renderizar();
+    }
+}
 
 // Esta funcion genera en el HTML una lista de la agenda
 const renderizar = () => {
@@ -85,6 +94,39 @@ botonBorrar.addEventListener("click", () => {
     recitales = [];
     renderizar();
 });
+
+export async function agregarEventoDisponible(recital) {
+    const resultado = await confirmarAgenda(recital.artista);
+
+    if (resultado.isConfirmed) {
+        const sectorElegido = await elegirSector();
+
+        if (!sectorElegido.isDismissed) {
+            const precioSeleccionado = recital.entrada.find(
+                (precioPorSector) =>
+                    precioPorSector.sector.toLowerCase() ===
+                    sectorElegido.value.toLowerCase()
+            ).precio;
+
+            const nuevoRecital = new Recital(
+                recital.artista,
+                precioSeleccionado,
+                sectorElegido.value,
+                recital.fecha
+            );
+
+            recitales.push(nuevoRecital);
+            guardadoLocal();
+            renderizar();
+
+            Swal.fire({
+                title: "¡Agregado a la agenda!",
+                text: `"${recital.artista}" ha sido agregado a la agenda.`,
+                icon: "success",
+            });
+        }
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     mostrarTarjetas();
